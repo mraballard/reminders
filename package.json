@@ -1,0 +1,30 @@
+{
+  "name": "reminders",
+  "version": "1.0.0",
+  "description": "app to create reminders - MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mraballard/reminders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mraballard/reminders/issues"
+  },
+  "homepage": "https://github.com/mraballard/reminders#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.6",
+    "morgan": "^1.7.0"
+  },
+  "engines": {
+    "node": "version 6.4.0"
+  }
+}

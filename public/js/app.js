@@ -1,12 +1,11 @@
 (function(){
-  angular.module('reminders', [])
+  angular.module('reminders')
   .controller('mainController', MainController);
 
-  MainController.$inject = ['$http'];
+  MainController.$inject = ['$http', '$state'];
 
-  function MainController($http) {
+  function MainController($http, $state) {
     var self = this;
-
     self.getReminders = function() {
       $http.get('/reminders')
       .then(function(response){

@@ -9,7 +9,23 @@ router.get('/', function(req, res){
   var reminders = Reminder.find({}).exec()
   .then(function(reminders){
     console.log(reminders);
-    res.json({status: 200, reminders: reminders});
+    res.json({eminders: reminders});
+  })
+  .catch(function(err){
+    console.log(error);
+  });
+});
+
+// Create new reminder
+router.post('/new', function(req, res){
+  var reminder = Reminder.create({
+    title: req.body.title,
+    body: req.body.body,
+    done: req.body.done
+  })
+  .then(function(reminder){
+    console.log(reminder);
+    res.json({reminder: reminder});
   })
   .catch(function(err){
     console.log(error);

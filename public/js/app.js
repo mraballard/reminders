@@ -18,6 +18,10 @@
       });
     } // Close getReminders function
 
+    self.newReminder = function(reminder) {
+      console.log(reminder);
+    }
+
     self.getReminders();
   } // close MainController function
 

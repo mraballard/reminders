@@ -30,6 +30,18 @@
       });
     }
 
+    self.updateReminder = function(reminder) {
+      $http.patch('/reminders/update', {reminder: reminder})
+      .then(function(response){
+        console.log("Should be updated");
+        console.log(response);
+        self.getReminders();
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+    }
+
     self.getReminders();
   } // close MainController function
 

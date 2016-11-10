@@ -23,11 +23,15 @@
     </form>
     <h1>Reminders:</h1>
     <ul ng-repeat="reminder in mainCtrl.reminders">
-      <li>
-        <h3>{{reminder.title}}</h3>
-        <h5>{{reminder.body}}</h5>
-        <h6>{{reminder.done}}</h6>
-      </li>
+      <form ng-submit="mainCtrl.updateReminder(reminder, $index)">
+        <label for="new">New Title:</label>
+        <input ng-model="reminder.title" type="text" name="title" value="{{reminder.title}}">
+        <label for="new">Description:</label>
+        <input ng-model="reminder.body" type="text" name="body" value="{{reminder.body}}">
+        <label for="done">Completed</label>
+        <input ng-model="reminder.done" type="checkbox" name="Done" value="{{reminder.done}}">
+        <button type="submit" name="button">Submit</button>
+      </form>
     </ul>
 
     <main ui-view></main>

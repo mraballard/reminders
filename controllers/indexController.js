@@ -5,10 +5,8 @@ var Reminder = require('../models/reminder');
 // ROOT
 
 router.get('/', function(req, res){
-  console.log("get index route");
   var reminders = Reminder.find({}).exec()
   .then(function(reminders){
-    console.log(reminders);
     res.json({reminders: reminders});
   })
   .catch(function(err){
@@ -24,7 +22,23 @@ router.post('/new', function(req, res){
     done: req.body.done
   })
   .then(function(reminder){
-    console.log(reminder);
+    res.json({reminder: reminder});
+  })
+  .catch(function(err){
+    console.log(error);
+  });
+});
+
+// Update reminder
+router.patch('/update', function(req, res){
+  Reminder.findOne({_id: req.body.reminder._id}).exec()
+  .then(function(reminder){
+    reminder.title = req.body.reminder.title;
+    reminder.body = req.body.reminder.body;
+    reminder.done = req.body.reminder.done;
+    reminder.save();
+  })
+  .then(function(reminder){
     res.json({reminder: reminder});
   })
   .catch(function(err){

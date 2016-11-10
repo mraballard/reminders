@@ -6,6 +6,8 @@
 
   function MainController($http, $state) {
     var self = this;
+    self.newReminder = {};
+
     self.getReminders = function() {
       $http.get('/reminders')
       .then(function(response){
@@ -18,7 +20,14 @@
     } // Close getReminders function
 
     self.newReminder = function(reminder) {
-      console.log(reminder);
+      $http.post('/reminders/new', {title: reminder.title, body: reminder.body, done: reminder.done})
+      .then(function(response){
+        console.log(response);
+        self.getReminders();
+      })
+      .catch(function(err){
+        console.log(err);
+      });
     }
 
     self.getReminders();

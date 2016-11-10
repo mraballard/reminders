@@ -12,7 +12,7 @@
   </head>
   <body ng-controller="mainController as mainCtrl">
     <h1>New Reminder</h1>
-    <!-- <form ng-submit="mainCtrl.newReminder(newReminder)">
+    <form ng-submit="mainCtrl.newReminder(newReminder)">
       <label for="new">New Title:</label>
       <input ng-model="newReminder.title" type="text" name="title" value="Enter a title">
       <label for="new">Description:</label>
@@ -20,7 +20,7 @@
       <label for="done">Completed</label>
       <input ng-model="newReminder.done" type="checkbox" name="Done" value="true">
       <button type="submit" name="button">Submit</button>
-    </form> -->
+    </form>
     <h1>Reminders:</h1>
     <ul ng-repeat="reminder in mainCtrl.reminders">
       <li>

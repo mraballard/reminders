@@ -9,7 +9,7 @@ router.get('/', function(req, res){
   var reminders = Reminder.find({}).exec()
   .then(function(reminders){
     console.log(reminders);
-    res.json({eminders: reminders});
+    res.json({reminders: reminders});
   })
   .catch(function(err){
     console.log(error);

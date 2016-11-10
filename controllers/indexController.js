@@ -5,7 +5,15 @@ var Reminder = require('../models/reminder');
 // ROOT
 
 router.get('/', function(req, res){
-  res.render('/index', {status: 200, message: "welcome home"});
+  console.log("get index route");
+  var reminders = Reminder.find({}).exec()
+  .then(function(reminders){
+    console.log(reminders);
+    res.json({status: 200, reminders: reminders});
+  })
+  .catch(function(err){
+    console.log(error);
+  });
 });
 
 module.exports = router;

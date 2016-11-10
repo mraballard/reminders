@@ -9,9 +9,9 @@
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('index', {
+      .state('main', {
         url: '/',
-        templateURL: '../../views/index.html'
+        templateURL: './views/main.html'
       });
   }
 

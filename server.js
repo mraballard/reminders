@@ -7,6 +7,33 @@ var path = require('path');
 
 // model
 var Reminder = require('./models/reminder');
+// Seed database
+// Reminder.create({
+//   title: "Personal",
+//   description: "Go grocery shopping",
+//   done: false
+// })
+// Reminder.create({
+//   title: "Personal",
+//   description: "Wash the car",
+//   done: false
+// })
+// Reminder.create({
+//   title: "Work",
+//   description: "Finish presentation",
+//   done: false
+// })
+// Reminder.create({
+//   title: "Personal",
+//   description: "Wash dog",
+//   done: false
+// })
+// Reminder.create({
+//   title: "Work",
+//   description: "Email spreadsheet to team",
+//   done: false
+// })
+
 // controller
 var indexController = require('./controllers/indexController');
 // mongoose setup
@@ -21,7 +48,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
 
-app.use('/', indexController);
+app.use('/reminders', indexController);
 
 // database
 var db = mongoose.connection;
@@ -29,8 +56,8 @@ db.on('error', function(err) {console.log(err);});
 db.once('open', function(){console.log('Connected to Mongo database');});
 
 //Routing
-app.get('/', function(req, res){
-  res.render('index')
+app.use(function(req, res, next){
+  res.redirect("/");
 });
 
 app.listen(process.env.PORT || 3000, function(){

@@ -10,8 +10,8 @@
     self.getReminders = function() {
       $http.get('/reminders')
       .then(function(response){
-        console.log(response);
         self.reminders = response.data.reminders;
+        console.log(self.reminders);
       })
       .catch(function(err){
         console.log(err);

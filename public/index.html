@@ -12,9 +12,10 @@
   </head>
   <body ng-controller="mainController as mainCtrl">
     <h1>Reminders:</h1>
-    {{2+2}}
+    <ul ng-repeat="reminder in mainCtrl.reminders">
+      <li><h3>{{reminder.title}}</h3><h5>{{reminder.body}}</h5><h6>{{reminder.done}}</h6></li>
+    </ul>
 
-    {{mainCtrl.reminders}}
     <main ui-view></main>
 
   </body>

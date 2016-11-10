@@ -8,31 +8,32 @@ var path = require('path');
 // model
 var Reminder = require('./models/reminder');
 // Seed database
+// Reminder.remove({});
 // Reminder.create({
 //   title: "Personal",
-//   description: "Go grocery shopping",
+//   body: "Go grocery shopping",
 //   done: false
-// })
+// });
 // Reminder.create({
 //   title: "Personal",
-//   description: "Wash the car",
+//   body: "Wash the car",
 //   done: false
-// })
+// });
 // Reminder.create({
 //   title: "Work",
-//   description: "Finish presentation",
+//   body: "Finish presentation",
 //   done: false
-// })
+// });
 // Reminder.create({
 //   title: "Personal",
-//   description: "Wash dog",
+//   body: "Wash dog",
 //   done: false
-// })
+// });
 // Reminder.create({
 //   title: "Work",
-//   description: "Email spreadsheet to team",
+//   body: "Email spreadsheet to team",
 //   done: false
-// })
+// });
 
 // controller
 var indexController = require('./controllers/indexController');

@@ -8,7 +8,7 @@ var ReminderSchema = new mongoose.Schema({
   updatedAt: String
 });
 
-ReminderSchema.pre('save', funciton(next){
+ReminderSchema.pre('save', function(next) {
   now = new Date();
   this.updatedAt = now.toLocaleString();
   if (!this.createdAt) {
@@ -17,4 +17,4 @@ ReminderSchema.pre('save', funciton(next){
   next();
 });
 
-module.exports = mongoose.model('Review', ReviewSchema);
+module.exports = mongoose.model('Reminder', ReminderSchema);

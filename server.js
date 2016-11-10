@@ -5,16 +5,16 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 // model
-var reminder = require('./models/reminder');
+var Reminder = require('./models/reminder');
 // controller
-var indexController = require('./controllers/index.js');
+var indexController = require('./controllers/indexController');
 // mongoose setup
 mongoose.Promise = global.Promise;
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/reminders';
 mongoose.connect(mongoURI);
 
 
-app.user(logger('dev'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('public'));

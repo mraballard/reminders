@@ -1,10 +1,10 @@
 (function() {
-  angular.module('reminders', ['ui-router'])
-  .config(MainRouter)
+  angular.module('reminders', ['ui.router'])
+  .config(MainRouter);
 
-  MainRouter.$inject = ["$stateProvider", "$urlRouterProvider"];
+  MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function MainRouter($stateProvider, $urlRouterProvider){
+  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
 
     $urlRouterProvider.otherwise('/');
 
@@ -17,4 +17,4 @@
 
 })()
 
-console.log(router.js);
+console.log('router.js');

@@ -21,22 +21,20 @@
         <h1>New Reminder</h1>
       </div>
       <div class="row">
-        <div class="col-xs-4 col-xs-offset-4">
-          <form ng-submit="mainCtrl.newReminder(newReminder)">
-            <div class="form-group">
-              <label for="new">New Title:</label>
-              <input ng-model="newReminder.title" type="text" name="title" value="Enter a title">
+        <div class="col-xs-6 col-sm-6 col-sm-offset-4 card">
+          <form class="inline" ng-submit="mainCtrl.newReminder(newReminder)">
+            <div class="col-xs-12">
+              <label class="sr-only" for="new">New Title:</label>
+              <input ng-model="newReminder.title" type="text" name="title" placeholder="Enter a title">
+              <label class="sr-only" for="new">Description:</label>
+              <input ng-model="newReminder.body" type="text" name="body" placeholder="Enter a reminder">
             </div>
-            <div class="form-group">
-              <label for="new">Description:</label>
-              <input ng-model="newReminder.body" type="text" name="body" value="Enter a reminder">
-            </div>
-            <div class="form-group">
+            <div class="col-xs-12">
               <label for="done">Completed</label>
               <input ng-model="newReminder.done" type="checkbox" name="Done" value="true">
             </div>
-            <div class="form-group">
-              <button type="submit" name="button">Submit</button>
+            <div class="col-xs-12">
+              <button class="btn btn-primary btn-xs" type="submit" name="button">Submit</button>
             </div>
           </form>
         </div>
@@ -46,26 +44,24 @@
         <h1>Reminders:</h1>
       </div>
       <div class="row">
-        <div class="col-xs-12 card" ng-repeat="reminder in mainCtrl.reminders">
-
+        <div class="col-xs-6 card" ng-repeat="reminder in mainCtrl.reminders">
           <form class="inline" ng-submit="mainCtrl.updateReminder(reminder, $index)">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-4">
+            <div class="col-xs-12">
               <label class="sr-only" for="new">New Title:</label>
               <input ng-model="reminder.title" type="text" name="title" value="{{reminder.title}}">
               <label class="sr-only" for="new">Description:</label>
               <input ng-model="reminder.body" type="text" name="body" value="{{reminder.body}}">
             </div>
-            <div class="col-xs-12 col-sm-8 col-sm-offset-4">
+            <div class="col-xs-12">
               <label for="done">Completed</label>
               <input ng-model="reminder.done" type="checkbox" name="Done" value="{{reminder.done}}">
             </div>
-            <div class="col-xs-12 col-sm-8 col-sm-offset-4">
-              <button type="submit" name="button">Submit</button>
-              <button ng-click="mainCtrl.deleteReminder(reminder)" type="button" name="delete">Delete</button>
+            <div class="col-xs-12">
+              <button class="btn btn-primary btn-xs" type="submit" name="button">Submit</button>
+              <button class="btn btn-danger btn-xs" ng-click="mainCtrl.deleteReminder(reminder)" type="button" name="delete">Delete</button>
             </div>
-
           </form>
-        </ul>
+        </div>
       </div>
 
 

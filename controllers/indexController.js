@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Reminder = require('../models/reminder');
 
-// ROOT
-
+// Get all reminders
 router.get('/', function(req, res){
   var reminders = Reminder.find({}).exec()
   .then(function(reminders){
@@ -13,7 +12,6 @@ router.get('/', function(req, res){
     console.log(error);
   });
 });
-
 // Create new reminder
 router.post('/new', function(req, res){
   var reminder = Reminder.create({
@@ -28,7 +26,6 @@ router.post('/new', function(req, res){
     console.log(error);
   });
 });
-
 // Update reminder
 router.patch('/update', function(req, res){
   Reminder.findOne({_id: req.body.reminder._id}).exec()
@@ -45,7 +42,7 @@ router.patch('/update', function(req, res){
     console.log(error);
   });
 });
-
+// Delete reminder
 router.delete('/delete/:id', function(req, res) {
   Reminder.remove({_id: req.params.id}).exec()
   .then(function(reminder){

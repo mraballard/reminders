@@ -46,4 +46,14 @@ router.patch('/update', function(req, res){
   });
 });
 
+router.delete('/delete/:id', function(req, res) {
+  Reminder.remove({_id: req.params.id}).exec()
+  .then(function(reminder){
+    res.json({reminder: reminder});
+  })
+  .catch(function(err){
+    console.log(err);
+  });
+});
+
 module.exports = router;

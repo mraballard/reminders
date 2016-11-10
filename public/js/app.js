@@ -42,6 +42,18 @@
       });
     }
 
+    self.deleteReminder = function(reminder) {
+      console.log(reminder);
+      $http.delete(`/reminders/delete/${reminder._id}`, {reminder: reminder})
+      .then(function(response){
+        console.log(response);
+        self.getReminders();
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+    }
+
     self.getReminders();
   } // close MainController function
 

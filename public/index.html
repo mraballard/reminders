@@ -22,12 +22,12 @@
       </div>
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-4 card">
-          <form class="inline" ng-submit="mainCtrl.newReminder(newReminder)">
+          <form class="inline" ng-submit="mainCtrl.newReminder(mainCtrl.newReminder)">
             <div class="col-xs-12">
               <label class="sr-only" for="new">New Title:</label>
-              <input ng-model="newReminder.title" type="text" name="title" placeholder="Enter a title">
+              <input ng-model="mainCtrl.newReminder.title" type="text" name="title" placeholder="Enter a title">
               <label class="sr-only" for="new">Description:</label>
-              <input ng-model="newReminder.body" type="text" name="body" placeholder="Enter a reminder">
+              <input ng-model="mainCtrl.newReminder.body" type="text" name="body" placeholder="Enter a reminder">
             </div>
             <div class="col-xs-12">
               <button class="btn btn-primary btn-xs" type="submit" name="button">Submit</button>

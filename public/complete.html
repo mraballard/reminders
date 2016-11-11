@@ -2,16 +2,9 @@
   <h1>Completed:</h1>
 </div>
 <div class="row">
-  <div class="col-xs-6 card" ng-repeat="reminder in mainCtrl.completed">
-      <div class="col-xs-12">
-        <label class="sr-only" for="new">New Title:</label>
-        <input ng-model="reminder.title" type="text" name="title" value="{{reminder.title}}">
-        <label class="sr-only" for="new">Description:</label>
-        <input ng-model="reminder.body" type="text" name="body" value="{{reminder.body}}">
-      </div>
-      <div class="col-xs-12">
-        <label for="done">Completed</label>
-        <input ng-model="reminder.done" type="checkbox" name="Done" value="{{reminder.done}}">
-      </div>
-  </div>
+  <ul class="col-xs-12 col-xs-offset-3 col-sm-offset-5" ng-repeat="reminder in mainCtrl.completed">
+    <li>{{reminder.title}}: {{reminder.body}}</li>
+    <input ng-click="mainCtrl.updateReminder(reminder, $index)" ng-model="reminder.done" type="checkbox" name="Done" value="{{reminder.done}}">
+    <label for="done">Completed</label>
+  </ul>
 </div>

@@ -6,10 +6,10 @@
 
   function MainController($http, $state) {
     var self = this;
-    self.master = {};
 
     self.resetForm = function() {
-      self.newReminder = angular.copy(self.master);
+      self.newReminder = {title: "", body: "", done: false};
+      console.log(self.newReminder);
     }
 
     self.setReminders = function() {

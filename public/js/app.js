@@ -6,9 +6,10 @@
 
   function MainController($http, $state) {
     var self = this;
+    self.newReminder = null;
 
     self.resetForm = function() {
-      self.newReminder = {title: "", body: "", done: false};
+      self.newReminder = null;
       console.log(self.newReminder);
     }
 
@@ -32,22 +33,22 @@
       });
     } // Close getReminders function
 
-    self.newReminder = function(reminder) {
-      $http.post('/reminders/new', {title: reminder.title, body: reminder.body, done: reminder.done})
-      .then(function(response){
-        self.resetForm();
-        self.getReminders();
-      })
-      .catch(function(err){
-        console.log(err);
-      });
+    self.createReminder = function(reminder) {
+      // if (reminder) {
+        $http.post('/reminders/new', {title: reminder.title, body: reminder.body, done: reminder.done})
+        .then(function(response){
+          self.resetForm();
+          self.getReminders();
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+      // }
     }
 
     self.updateReminder = function(reminder) {
       $http.patch('/reminders/update', {reminder: reminder})
       .then(function(response){
-        console.log("Should be updated");
-        console.log(response);
         self.getReminders();
       })
       .catch(function(err){
@@ -56,10 +57,8 @@
     }
 
     self.deleteReminder = function(reminder) {
-      console.log(reminder);
       $http.delete(`/reminders/delete/${reminder._id}`, {reminder: reminder})
       .then(function(response){
-        console.log(response);
         self.getReminders();
       })
       .catch(function(err){

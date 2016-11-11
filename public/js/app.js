@@ -6,7 +6,11 @@
 
   function MainController($http, $state) {
     var self = this;
-    self.newReminder = {};
+    self.master = {};
+
+    self.resetForm = function() {
+      self.newReminder = angular.copy(self.master);
+    }
 
     self.setReminders = function() {
       self.completed = self.reminders.filter(function(reminder) {
@@ -22,7 +26,6 @@
       .then(function(response){
         self.reminders = response.data.reminders;
         self.setReminders(); // Creates arrays of completed reminders
-        console.log(self.reminders);
       })
       .catch(function(err){
         console.log(err);
@@ -32,7 +35,7 @@
     self.newReminder = function(reminder) {
       $http.post('/reminders/new', {title: reminder.title, body: reminder.body, done: reminder.done})
       .then(function(response){
-        console.log(response);
+        self.resetForm();
         self.getReminders();
       })
       .catch(function(err){

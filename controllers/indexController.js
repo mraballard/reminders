@@ -17,9 +17,10 @@ router.post('/new', function(req, res){
   var reminder = Reminder.create({
     title: req.body.title,
     body: req.body.body,
-    done: req.body.done
+    done: false
   })
   .then(function(reminder){
+    console.log(reminder);
     res.json({reminder: reminder});
   })
   .catch(function(err){

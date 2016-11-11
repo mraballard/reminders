@@ -8,10 +8,20 @@
     var self = this;
     self.newReminder = {};
 
+    self.setReminders = function() {
+      self.completed = self.reminders.filter(function(reminder) {
+        return reminder.done === true;
+      });
+      self.incomplete = self.reminders.filter(function(reminder) {
+        return reminder.done === false;
+      });
+    }
+
     self.getReminders = function() {
       $http.get('/reminders')
       .then(function(response){
         self.reminders = response.data.reminders;
+        self.setReminders(); // Creates arrays of completed reminders
         console.log(self.reminders);
       })
       .catch(function(err){

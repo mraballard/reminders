@@ -4,15 +4,19 @@
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider){
-
-    $urlRouterProvider.otherwise('/');
+  function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
-      .state('main', {
-        url: '/',
-        templateURL: './views/main.html'
+      .state('reminders', {
+        url: "/",
+        templateUrl: "reminders.html",
+      })
+      .state('completed', {
+        url: "/completed",
+        templateUrl: "complete.html",
       });
+
+      $urlRouterProvider.otherwise('/');
   }
 
 })()

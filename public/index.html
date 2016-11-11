@@ -40,40 +40,15 @@
         </div>
       </div>
 
-      <div class="row text-center">
-        <h1>Reminders:</h1>
-      </div>
-      <div class="row">
-        <div class="col-xs-6 card" ng-repeat="reminder in mainCtrl.reminders">
-          <form class="inline" ng-submit="mainCtrl.updateReminder(reminder, $index)">
-            <div class="col-xs-12">
-              <label class="sr-only" for="new">New Title:</label>
-              <input ng-model="reminder.title" type="text" name="title" value="{{reminder.title}}">
-              <label class="sr-only" for="new">Description:</label>
-              <input ng-model="reminder.body" type="text" name="body" value="{{reminder.body}}">
-            </div>
-            <div class="col-xs-12">
-              <label for="done">Completed</label>
-              <input ng-model="reminder.done" type="checkbox" name="Done" value="{{reminder.done}}">
-            </div>
-            <div class="col-xs-12">
-              <button class="btn btn-primary btn-xs" type="submit" name="button">Submit</button>
-              <button class="btn btn-danger btn-xs" ng-click="mainCtrl.deleteReminder(reminder)" type="button" name="delete">Delete</button>
-            </div>
-          </form>
-        </div>
-      </div>
 
-
-
-
-
-
+    <div class="row text-center">
+      <nav class='tabs'>
+        <a ui-sref-active="active" ui-sref="reminders">Reminders</a>
+        <a ui-sref-active="active" ui-sref="completed">Completed</a>
+      </nav>
     </div>
 
-
-
-
+    <main ui-view></main>
     </div>
   </body>
 </html>

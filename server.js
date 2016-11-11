@@ -58,7 +58,7 @@ db.once('open', function(){console.log('Connected to Mongo database');});
 
 //Routing
 app.use(function(req, res, next){
-  res.redirect("/");
+  res.render("/");
 });
 
 app.listen(process.env.PORT || 3000, function(){
